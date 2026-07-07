@@ -3,7 +3,7 @@
 ## Project Description
 This repository contains a Capstone Design project developed as part of my undergraduate graduation requirements.
 *Understand your emotions objectively, and receive real healing feedback through IoT and generative AI.*
----
+
 
 ## 📖 Overview
 
@@ -40,52 +40,12 @@ Mood-ON recognizes **five emotions**, each mapped to a mood-light color and ambi
 
 > Color and sound mappings are grounded in color-psychology and sound-psychology research: positive emotions are reinforced, while negative emotions are gently regulated.
 
-
-## 🏗️ System Architecture
-```
-┌──────────────┐     text + video      ┌────────────────────┐
-│  Android App │ ────────────────────▶ │   GCP AI Server     │
-│  (Kotlin/    │                        │   FastAPI :8080     │
-│   Compose)   │ ◀──── emotion result ─ │  KcELECTRA +        │
-└──────┬───────┘                        │  MediaPipe (0.6:0.4)│
-       │                                └────────────────────┘
-       │  save
-       ▼
-┌──────────────┐                        ┌────────────────────┐
-│   Firebase   │ ◀──── chat ──────────▶ │  GCP Chatbot Server │
-│  Auth /      │                        │   FastAPI :8000     │
-│  Firestore / │                        │   GPT-based         │
-│  Storage /   │                        └────────────────────┘
-│  Realtime DB │
-└──────┬───────┘
-       │  polling (final emotion)
-       ▼
-┌──────────────┐
-│    ESP32     │  →  WS2812B Mood Light (color)
-│              │  →  DFPlayer Mini (ambient sound)
-└──────────────┘
-```
-
-
-
 ## 🛠️ Tech Stack - My Contributions (Android & Hardware)
 
 **Mobile App**
 - Kotlin, Jetpack Compose, MVVM + Repository pattern
 - CameraX (front-camera recording), OkHttp
 - Firebase Auth / Firestore / Storage / Realtime Database
-
-**Server**
-- Python, FastAPI
-- AI server (text/facial emotion models) and chatbot server, deployed on GCP as systemd services
-
-**AI Models**
-- **KcELECTRA** — Korean-specialized text emotion classification
-- **MediaPipe** — Facial detection and emotion recognition
-- Multimodal fusion via weighted average
-
-**Chatbot**
-- GPT-based, with prompt optimization (Self-Refine, GrIPS/PLUM)
 
 **Hardware**
 - ESP32 (Arduino), WS2812B NeoPixel LED ring, DFPlayer Mini
