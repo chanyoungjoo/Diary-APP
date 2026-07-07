@@ -1,3 +1,3 @@
-# MOOD-ON
+# 💡 MOOD-ON
 ## Multimodal-based Integrated Emotion Feedback Service
 
