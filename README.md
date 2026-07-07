@@ -1,11 +1,9 @@
-# 💡 MOOD-ON
-## Multimodal-based Integrated Emotion Feedback Service
+## 💡 MOOD-ON - Multimodal-based Integrated Emotion Feedback Service
+
 ## Project Description
 This repository contains a Capstone Design project developed as part of my undergraduate graduation requirements.
-
-### Multimodal Emotion Recognition & Feedback Service
-
 *Understand your emotions objectively, and receive real healing feedback through IoT and generative AI.*
+---
 
 ## 📖 Overview
 
@@ -44,11 +42,33 @@ Mood-ON recognizes **five emotions**, each mapped to a mood-light color and ambi
 
 
 ## 🏗️ System Architecture
+```
+┌──────────────┐     text + video      ┌────────────────────┐
+│  Android App │ ────────────────────▶ │   GCP AI Server     │
+│  (Kotlin/    │                        │   FastAPI :8080     │
+│   Compose)   │ ◀──── emotion result ─ │  KcELECTRA +        │
+└──────┬───────┘                        │  MediaPipe (0.6:0.4)│
+       │                                └────────────────────┘
+       │  save
+       ▼
+┌──────────────┐                        ┌────────────────────┐
+│   Firebase   │ ◀──── chat ──────────▶ │  GCP Chatbot Server │
+│  Auth /      │                        │   FastAPI :8000     │
+│  Firestore / │                        │   GPT-based         │
+│  Storage /   │                        └────────────────────┘
+│  Realtime DB │
+└──────┬───────┘
+       │  polling (final emotion)
+       ▼
+┌──────────────┐
+│    ESP32     │  →  WS2812B Mood Light (color)
+│              │  →  DFPlayer Mini (ambient sound)
+└──────────────┘
+```
 
 
 
-
-## 🛠️ Tech Stack
+## 🛠️ Tech Stack - My Contributions (Android & Hardware)
 
 **Mobile App**
 - Kotlin, Jetpack Compose, MVVM + Repository pattern
