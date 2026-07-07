@@ -2,7 +2,7 @@
 
 ## Project Description
 This repository contains a Capstone Design project developed as part of my undergraduate graduation requirements.
-*Understand your emotions objectively, and receive real healing feedback through IoT and generative AI.*
+*"Understand your emotions objectively, and receive real healing feedback through IoT and generative AI."*
 <br>
 
 ## 📖 Overview
