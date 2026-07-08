@@ -201,7 +201,8 @@ class DiaryViewModel : ViewModel() { // ViewModel을 상속받아 DiaryViewModel
                             diaryrepository.saveSummary(
                                 diaryId = diaryId,
                                 summary = it.summary,
-                                keywords = it.keywords
+                                keywords = it.keywords,
+                                counsel = it.counsel
                             )
                         } catch(e: Exception) { }
                     }

@@ -233,12 +233,14 @@ class DiaryRepository {
         }
     }
 
-    // 일기 요약을 저장하는 함수
-    suspend fun saveSummary(diaryId : String, summary : String , keywords : List<String>){
+    // 일기 요약 + 상담 멘트(counsel)를 저장하는 함수
+    // counsel: 일기 저장 시 챗봇 서버가 일기 기반으로 생성한 상담 멘트
+    suspend fun saveSummary(diaryId : String, summary : String , keywords : List<String>, counsel : String){
         db.collection("diaries").document(diaryId)
             .update(mapOf(
                 "summary" to summary,
-                "keywords" to keywords
+                "keywords" to keywords,
+                "counsel" to counsel
             )).await()
     }
 

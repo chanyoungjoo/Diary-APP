@@ -40,6 +40,17 @@ class ChatRepository {
         return doc.getString("nickname")
     }
 
+    // 특정 날짜 일기에 저장된 상담 멘트(counsel)를 읽어오는 함수
+    suspend fun getTodayCounsel(uid: String, date: String): String? {
+        val result = db.collection("diaries")
+            .whereEqualTo("user_id", uid)
+            .whereEqualTo("diary_date", date)
+            .limit(1)
+            .get().await()
+
+        return result.documents.firstOrNull()?.getString("counsel")
+    }
+
     // 챗봇 서버에게 메시지를 전송하고 챗봇의 응답을 받는 함수
     suspend fun sendToChatServer(
         text: String,
