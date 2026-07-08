@@ -54,3 +54,7 @@ Mood-ON recognizes **five emotions**, each mapped to a mood-light color and ambi
 - ESP32 (Arduino), WS2812B NeoPixel LED ring, DFPlayer Mini
 - Reads emotion results from Firebase Realtime Database via polling
 - Emotion-to-color and emotion-to-sound mapping based on color/sound psychology
+
+## 🏗️ System Architecture
+
+![Mood-ON System Architecture](architecture.png)
