@@ -57,4 +57,4 @@ Mood-ON recognizes **five emotions**, each mapped to a mood-light color and ambi
 
 ## 🏗️ System Architecture
 
-![Mood-ON System Architecture](architecture.png)
+![Mood-ON System Architecture](System%20Architecture.png)
