@@ -62,8 +62,4 @@ Mood-ON recognizes **five emotions**, each mapped to a mood-light color and ambi
 **Why the app (not the server) writes to Firebase**<br>
 Emotion analysis runs on the GCP server, but the final result is saved to Firebase by the authenticated Android client rather than by the server directly.
 Writing from the server would require deploying a Firebase Service Account Key, a highly sensitive credential that grants full admin access to the entire project. Exposing this key (e.g., in the repository or on the server) would be a serious security risk.
-Instead, the app — already authenticated via Firebase Auth — writes results under its own user context (auth.uid). This approach:
-
-* Avoids storing admin credentials on the server
-* Leverages Firebase Security Rules for per-user access control
-* Follows Firebase's recommended client-side data model
+Instead, the app — already authenticated via Firebase Auth — writes results under its own user context (auth.uid).
